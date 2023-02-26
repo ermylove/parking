@@ -24,8 +24,8 @@ def mouseClick(events, x, y, flags, params):
             if x1 < x < x1 + WIDTH and y1 < y < y1 + HEIGHT:
                 pos_list.pop(i)
 
-    with open('positions', 'wb') as f:
-        pickle.dump(pos_list, f)
+    #with open('positions', 'wb') as f:
+    #   pickle.dump(pos_list, f)
 
 
 while True:
@@ -35,4 +35,5 @@ while True:
 
     cv2.imshow("Image", img)
     cv2.setMouseCallback("Image", mouseClick)
-    cv2.waitKey(1)
+    if cv2.waitKey(30) & 0xFF == ord('q'):
+        break
